@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -101,5 +102,16 @@ public class OmikujiActivity extends Activity {
 		image.setImageResource(R.drawable.result1);
 		setContentView(image);
 		*/		
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		// TODO 自動生成されたメソッド・スタブ
+		if (event.getAction() == MotionEvent.ACTION_DOWN) {
+			if (0 < this.omikujibox.getNumber()) {
+				this.drawResult();
+			}
+		}
+		return super.onTouchEvent(event);
 	}
 }
