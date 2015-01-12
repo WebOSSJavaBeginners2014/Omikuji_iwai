@@ -12,18 +12,24 @@ public class OmikujiActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		// 文字を表示する
+
 		TextView tv = (TextView) findViewById(R.id.hello_view);
 		
-		String str = "大吉";
+		// くじ番号の取得
 		Random rnd = new Random();
-		int number = rnd.nextInt(3);
-		if (number == 0) {
-			str = "吉";
+		int number = rnd.nextInt(20);
+
+		// おみくじ棚の準備
+		String[] omikujiShelf = new String[20];
+		for (int i = 0; i < 20; i++) {
+			omikujiShelf[i] = "吉";
 		}
-		else if (number == 1) {
-			str = "凶";
-		}
+		omikujiShelf[0] = "大吉";
+		omikujiShelf[19] = "凶";
+		
+		// おみくじ棚から取得
+		String str = omikujiShelf[number];
+		
 		tv.setText(str);
 	}
 }
