@@ -1,23 +1,20 @@
 package makeApplication.omikuji;
 
-import java.util.Random;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class OmikujiActivity extends Activity {
+	
+	private OmikujiBox omikujibox = new OmikujiBox();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.omikuji);
+		
+		this.omikujibox.setImageView((ImageView)findViewById(R.id.imageView1));
 		/*
 		TextView tv = (TextView) findViewById(R.id.hello_view);
 		
@@ -41,6 +38,10 @@ public class OmikujiActivity extends Activity {
 	}
 	
 	public void onButtonClick(View v) {
+		
+		this.omikujibox.shake();
+		
+		/*
 		TranslateAnimation translate = new TranslateAnimation(0, 0, 0, -100);
 		translate.setRepeatMode(Animation.REVERSE);
 		translate.setRepeatCount(5);
@@ -56,6 +57,7 @@ public class OmikujiActivity extends Activity {
 		set.addAnimation(translate);
 		
 		imageview.startAnimation(set);
+		*/
 		
 		/*
 		ImageView image = new ImageView(this);
